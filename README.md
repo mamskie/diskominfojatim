@@ -7,28 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
 ## Installation
 
 Untuk menginstal dan menjalankan aplikasi Laravel ini, ikuti langkah-langkah berikut:
@@ -47,5 +25,346 @@ Pastikan Anda telah menginstal:
 Clone repositori ini ke dalam direktori lokal Anda:
 
 ```bash
-# git clone https://github.com/mamskie/repository-name.git
-# cd 
+git clone https://github.com/mamskie/diskominfojatim.git
+cd diskominfojatim
+```
+
+### Step 2: Install Dependencies
+
+```bash
+composer install
+```
+
+### Step 3: Configurasi Environment
+
+```bash
+cp .env.example .env
+```
+Edit file .env dan masukkan detail database Anda:
+```bash
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=seleksidiskominfojatim
+DB_USERNAME=db_username
+DB_PASSWORD=db_password
+```
+
+### Step 4: Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### Step 5: Migrasi Database
+
+```bash
+php artisan migrate
+```
+
+### Step 6: Jalankan Aplikasi
+
+```bash
+php artisan serve
+```
+
+## API Documentation
+
+### Overview
+
+Aplikasi ini menyediakan API untuk mengelola produk dan pesanan. API ini memiliki dua endpoint utama: **Products** dan **Orders**.
+
+### Products API
+
+#### List Products
+Url = /api/products
+Method = `GET`
+Deskripsi = Mendapatkan daftar semua produk
+Respon:
+ - HTTP Code = 200
+ - Content Type = "application/json"
+ - Data Schema:
+   ```json
+   {
+    "message": "List Products",
+    "data": [{...}]
+   }
+   ```
+
+#### Create Product
+Url: /api/products
+Method: POST
+Deskripsi: Menambahkan produk baru
+Request Body:
+```json
+{
+  "name": "Nama Produk",
+  "price": 15000, //harga
+  "stock": 20 //jumlah
+}
+```
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Product Created",
+  "data": {
+    "id": 2,
+    "name": "Product Name",
+    "price": 15000, //harga
+    "stock": 20, //stok
+    "sold": 0, //terjual
+    "created_at": "2024-09-22T12:00:00Z", //timestamp automatically
+    "updated_at": "2024-09-22T12:00:00Z" //timestamp automatically
+  }
+}
+```
+#### Detail Products
+Url: /api/products/{id}
+Method: GET
+Deskripsi: Mendapatkan detail sebuah produk berdasarkan ID
+Path Parameter:
+`id`: string (required)
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Product Detail",
+  "data": {
+    "id": 2,
+    "name": "Product Name",
+    "price": 15000, // harga
+    "stock": 20, // stok
+    "sold": 5, // terjual
+    "created_at": "2024-09-22T12:00:00Z", // timestamp automatically
+    "updated_at": "2024-09-23T12:00:00Z" // timestamp automatically
+  }
+}
+```
+
+#### Update Products
+Url: /api/products/{id}
+Method: PUT
+Deskripsi: Memperbarui sebuah produk berdasarkan ID
+Path Parameter:
+id: string (required)
+Request Body (optional)
+```json
+{
+  "name": "Updated Product",
+  "price": 20000,
+  "stock": 15
+}
+```
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Product Updated",
+  "data": {
+    "id": 2,
+    "name": "Updated Product",
+    "price": 20000,
+    "stock": 15,
+    "sold": 5,
+    "created_at": "2024-09-22T12:00:00Z",
+    "updated_at": "2024-09-23T15:00:00Z"
+  }
+}
+```
+#### Delete Product
+Url: /api/products/{id}
+Method: DELETE
+Deskripsi: Menghapus sebuah produk berdasarkan ID
+Path Parameter:
+id: string (required)
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Product Deleted",
+  "data": {
+    "id": 2,
+    "name": "Product Name",
+    "price": 15000,
+    "stock": 20,
+    "sold": 5,
+    "created_at": "2024-09-22T12:00:00Z",
+    "updated_at": "2024-09-23T15:00:00Z"
+  }
+}
+```
+Error Responses
+HTTP Code: 422 (Parameter Error)
+```json
+{
+  "message": "Validation Error",
+  "errors": {
+    "name": ["Name is required"],
+    "price": ["Price must be at least 1"],
+    "stock": ["Stock must be a positive number"]
+  }
+}
+```
+HTTP Code: 404 (Product Not Found)
+```json
+{
+  "message": "Product not found"
+}
+```
+
+### Orders API
+
+#### List Orders
+Url: /api/orders
+Method: GET
+Deskripsi: Mendapatkan daftar semua pesanan
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "List Orders",
+  "data": [
+    {
+      "id": 1,
+      "products": [
+        {
+          "id": 2,
+          "quantity": 3
+        }
+      ],
+      "created_at": "2024-09-22T10:00:00Z",
+      "updated_at": "2024-09-22T12:00:00Z"
+    }
+  ]
+}
+```
+
+#### Create Order
+Url: /api/orders
+Method: POST
+Deskripsi: Membuat pesanan baru
+Request Body:
+```json
+{
+  "products": [
+    {
+      "id": 1,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "quantity": 1
+    }
+  ]
+}
+```
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Order Created",
+  "data": {
+    "id": 1,
+    "products": [
+      {
+        "id": 1,
+        "quantity": 2
+      },
+      {
+        "id": 2,
+        "quantity": 1
+      }
+    ],
+    "created_at": "2024-09-22T10:00:00Z",
+    "updated_at": "2024-09-22T10:00:00Z"
+  }
+}
+```
+
+#### Detail Order
+Url: /api/orders/{id}
+Method: GET
+Deskripsi: Mendapatkan detail sebuah pesanan berdasarkan ID
+Path Parameter:
+id: string (required)
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Order Detail",
+  "data": {
+    "id": 1,
+    "products": [
+      {
+        "id": 1,
+        "quantity": 2
+      },
+      {
+        "id": 2,
+        "quantity": 1
+      }
+    ],
+    "created_at": "2024-09-22T10:00:00Z",
+    "updated_at": "2024-09-22T10:00:00Z"
+  }
+}
+```
+
+#### Delete Order
+Url: /api/orders/{id}
+Method: DELETE
+Deskripsi: Menghapus atau membatalkan sebuah pesanan berdasarkan ID
+Path Parameter:
+id: string (required)
+Respon:
+HTTP Code: 200
+Content Type: application/json
+Data Schema:
+```json
+{
+  "message": "Order Deleted",
+  "data": {
+    "id": 1,
+    "products": [
+      {
+        "id": 1,
+        "quantity": 2
+      },
+      {
+        "id": 2,
+        "quantity": 1
+      }
+    ],
+    "created_at": "2024-09-22T10:00:00Z",
+    "updated_at": "2024-09-22T10:00:00Z"
+  }
+}
+```
+Error Responses
+HTTP Code: 404 (Record Not Found)
+```json
+{
+  "message": "Order not found"
+}
+```
+HTTP Code: 400 (Bad Request)
+```json
+{
+  "message": "Bad Request"
+}
+```
