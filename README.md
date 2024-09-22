@@ -86,9 +86,19 @@ Respon:
  - Data Schema:
    ```json
    {
-    "message": "List Products",
-    "data": [{...}]
-   }
+  "message": "List Products",
+  "data": [
+        {
+        "id": 1,
+        "name": "Product 1",
+        "price": 10000,
+        "stock": 50,
+        "sold": 10,
+        "created_at": "2024-09-22T10:00:00Z",
+        "updated_at": "2024-09-22T12:00:00Z"
+        }
+        ]
+    }
    ```
 
 #### Create Product
@@ -99,8 +109,8 @@ Request Body:
 ```json
 {
   "name": "Nama Produk",
-  "price": 15000, //harga
-  "stock": 20 //jumlah
+  "price": 15000, 
+  "stock": 20 
 }
 ```
 Respon:
@@ -113,11 +123,11 @@ Data Schema:
   "data": {
     "id": 2,
     "name": "Product Name",
-    "price": 15000, //harga
-    "stock": 20, //stok
-    "sold": 0, //terjual
-    "created_at": "2024-09-22T12:00:00Z", //timestamp automatically
-    "updated_at": "2024-09-22T12:00:00Z" //timestamp automatically
+    "price": 15000, 
+    "stock": 20, 
+    "sold": 0, 
+    "created_at": "2024-09-22T12:00:00Z", 
+    "updated_at": "2024-09-22T12:00:00Z" 
   }
 }
 ```
@@ -137,11 +147,11 @@ Data Schema:
   "data": {
     "id": 2,
     "name": "Product Name",
-    "price": 15000, // harga
-    "stock": 20, // stok
-    "sold": 5, // terjual
-    "created_at": "2024-09-22T12:00:00Z", // timestamp automatically
-    "updated_at": "2024-09-23T12:00:00Z" // timestamp automatically
+    "price": 15000, 
+    "stock": 20, 
+    "sold": 5, 
+    "created_at": "2024-09-22T12:00:00Z", 
+    "updated_at": "2024-09-23T12:00:00Z" 
   }
 }
 ```
