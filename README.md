@@ -77,14 +77,14 @@ Aplikasi ini menyediakan API untuk mengelola produk dan pesanan. API ini memilik
 ### Products API
 
 #### List Products
-Url = /api/products
-Method = `GET`
-Deskripsi = Mendapatkan daftar semua produk
+- Url = /api/products
+- Method = `GET`
+- Deskripsi = Mendapatkan daftar semua produk
 Respon:
  - HTTP Code = 200
  - Content Type = "application/json"
  - Data Schema:
-   ```json
+```json
    {
   "message": "List Products",
   "data": [
@@ -99,13 +99,13 @@ Respon:
         }
         ]
     }
-   ```
+```
 
 #### Create Product
-Url: /api/products
-Method: POST
-Deskripsi: Menambahkan produk baru
-Request Body:
+- Url: /api/products
+- Method: POST
+- Deskripsi: Menambahkan produk baru
+- Request Body:
 ```json
 {
   "name": "Nama Produk",
@@ -114,9 +114,9 @@ Request Body:
 }
 ```
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Product Created",
@@ -132,15 +132,15 @@ Data Schema:
 }
 ```
 #### Detail Products
-Url: /api/products/{id}
-Method: GET
-Deskripsi: Mendapatkan detail sebuah produk berdasarkan ID
+- Url: /api/products/{id}
+- Method: GET
+- Deskripsi: Mendapatkan detail sebuah produk berdasarkan ID
 Path Parameter:
-`id`: string (required)
+- `id`: string (required)
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Product Detail",
@@ -157,12 +157,12 @@ Data Schema:
 ```
 
 #### Update Products
-Url: /api/products/{id}
-Method: PUT
-Deskripsi: Memperbarui sebuah produk berdasarkan ID
+- Url: /api/products/{id}
+- Method: PUT
+- Deskripsi: Memperbarui sebuah produk berdasarkan ID
 Path Parameter:
-id: string (required)
-Request Body (optional)
+- id: string (required)
+- Request Body (optional)
 ```json
 {
   "name": "Updated Product",
@@ -171,9 +171,9 @@ Request Body (optional)
 }
 ```
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Product Updated",
@@ -189,15 +189,15 @@ Data Schema:
 }
 ```
 #### Delete Product
-Url: /api/products/{id}
-Method: DELETE
-Deskripsi: Menghapus sebuah produk berdasarkan ID
+- Url: /api/products/{id}
+- Method: DELETE
+- Deskripsi: Menghapus sebuah produk berdasarkan ID
 Path Parameter:
-id: string (required)
+- id: string (required)
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Product Deleted",
@@ -213,7 +213,7 @@ Data Schema:
 }
 ```
 Error Responses
-HTTP Code: 422 (Parameter Error)
+- HTTP Code: 422 (Parameter Error)
 ```json
 {
   "message": "Validation Error",
@@ -224,7 +224,7 @@ HTTP Code: 422 (Parameter Error)
   }
 }
 ```
-HTTP Code: 404 (Product Not Found)
+- HTTP Code: 404 (Product Not Found)
 ```json
 {
   "message": "Product not found"
@@ -234,13 +234,13 @@ HTTP Code: 404 (Product Not Found)
 ### Orders API
 
 #### List Orders
-Url: /api/orders
-Method: GET
-Deskripsi: Mendapatkan daftar semua pesanan
+- Url: /api/orders
+- Method: GET
+- Deskripsi: Mendapatkan daftar semua pesanan
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "List Orders",
@@ -261,10 +261,10 @@ Data Schema:
 ```
 
 #### Create Order
-Url: /api/orders
-Method: POST
-Deskripsi: Membuat pesanan baru
-Request Body:
+- Url: /api/orders
+- Method: POST
+- Deskripsi: Membuat pesanan baru
+- Request Body:
 ```json
 {
   "products": [
@@ -280,9 +280,9 @@ Request Body:
 }
 ```
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Order Created",
@@ -305,15 +305,15 @@ Data Schema:
 ```
 
 #### Detail Order
-Url: /api/orders/{id}
-Method: GET
-Deskripsi: Mendapatkan detail sebuah pesanan berdasarkan ID
+- Url: /api/orders/{id}
+- Method: GET
+- Deskripsi: Mendapatkan detail sebuah pesanan berdasarkan ID
 Path Parameter:
-id: string (required)
+- id: string (required)
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Order Detail",
@@ -336,15 +336,15 @@ Data Schema:
 ```
 
 #### Delete Order
-Url: /api/orders/{id}
-Method: DELETE
-Deskripsi: Menghapus atau membatalkan sebuah pesanan berdasarkan ID
+- Url: /api/orders/{id}
+- Method: DELETE
+- Deskripsi: Menghapus atau membatalkan sebuah pesanan berdasarkan ID
 Path Parameter:
-id: string (required)
+- id: string (required)
 Respon:
-HTTP Code: 200
-Content Type: application/json
-Data Schema:
+- HTTP Code: 200
+- Content Type: application/json
+- Data Schema:
 ```json
 {
   "message": "Order Deleted",
@@ -366,13 +366,13 @@ Data Schema:
 }
 ```
 Error Responses
-HTTP Code: 404 (Record Not Found)
+- HTTP Code: 404 (Record Not Found)
 ```json
 {
   "message": "Order not found"
 }
 ```
-HTTP Code: 400 (Bad Request)
+- HTTP Code: 400 (Bad Request)
 ```json
 {
   "message": "Bad Request"
