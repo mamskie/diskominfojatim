@@ -109,7 +109,7 @@ Respon:
 - Request Body:
 ```json
 {
-  "name": "Nama Produk",
+  "name": "Product Name",
   "price": 15000, 
   "stock": 20 
 }
