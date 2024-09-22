@@ -80,6 +80,7 @@ Aplikasi ini menyediakan API untuk mengelola produk dan pesanan. API ini memilik
 - Url = /api/products
 - Method = `GET`
 - Deskripsi = Mendapatkan daftar semua produk
+
 Respon:
  - HTTP Code = 200
  - Content Type = "application/json"
@@ -135,8 +136,10 @@ Respon:
 - Url: /api/products/`{id}`
 - Method: `GET`
 - Deskripsi: Mendapatkan detail sebuah produk berdasarkan ID
+  
 Path Parameter:
 - `id`: string (required)
+  
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -160,6 +163,7 @@ Respon:
 - Url: /api/products/`{id}`
 - Method: `PUT`
 - Deskripsi: Memperbarui sebuah produk berdasarkan ID
+
 Path Parameter:
 - id: string (required)
 - Request Body (optional)
@@ -170,6 +174,7 @@ Path Parameter:
   "stock": 15
 }
 ```
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -192,8 +197,10 @@ Respon:
 - Url: /api/products/`{id}`
 - Method: `DELETE`
 - Deskripsi: Menghapus sebuah produk berdasarkan ID
+
 Path Parameter:
 - id: string (required)
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -237,6 +244,7 @@ Error Responses
 - Url: /api/orders
 - Method: `GET`
 - Deskripsi: Mendapatkan daftar semua pesanan
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -279,6 +287,7 @@ Respon:
   ]
 }
 ```
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -308,8 +317,10 @@ Respon:
 - Url: /api/orders/`{id}`
 - Method: `GET`
 - Deskripsi: Mendapatkan detail sebuah pesanan berdasarkan ID
+
 Path Parameter:
 - id: string (required)
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
@@ -339,8 +350,10 @@ Respon:
 - Url: /api/orders/`{id}`
 - Method: `DELETE`
 - Deskripsi: Menghapus atau membatalkan sebuah pesanan berdasarkan ID
+
 Path Parameter:
 - id: string (required)
+
 Respon:
 - HTTP Code: 200
 - Content Type: application/json
