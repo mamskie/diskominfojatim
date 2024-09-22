@@ -103,7 +103,7 @@ Respon:
 
 #### Create Product
 - Url: /api/products
-- Method: POST
+- Method: `POST`
 - Deskripsi: Menambahkan produk baru
 - Request Body:
 ```json
@@ -132,8 +132,8 @@ Respon:
 }
 ```
 #### Detail Products
-- Url: /api/products/{id}
-- Method: GET
+- Url: /api/products/`{id}`
+- Method: `GET`
 - Deskripsi: Mendapatkan detail sebuah produk berdasarkan ID
 Path Parameter:
 - `id`: string (required)
@@ -157,8 +157,8 @@ Respon:
 ```
 
 #### Update Products
-- Url: /api/products/{id}
-- Method: PUT
+- Url: /api/products/`{id}`
+- Method: `PUT`
 - Deskripsi: Memperbarui sebuah produk berdasarkan ID
 Path Parameter:
 - id: string (required)
@@ -189,8 +189,8 @@ Respon:
 }
 ```
 #### Delete Product
-- Url: /api/products/{id}
-- Method: DELETE
+- Url: /api/products/`{id}`
+- Method: `DELETE`
 - Deskripsi: Menghapus sebuah produk berdasarkan ID
 Path Parameter:
 - id: string (required)
@@ -235,7 +235,7 @@ Error Responses
 
 #### List Orders
 - Url: /api/orders
-- Method: GET
+- Method: `GET`
 - Deskripsi: Mendapatkan daftar semua pesanan
 Respon:
 - HTTP Code: 200
@@ -262,7 +262,7 @@ Respon:
 
 #### Create Order
 - Url: /api/orders
-- Method: POST
+- Method: `POST`
 - Deskripsi: Membuat pesanan baru
 - Request Body:
 ```json
@@ -305,8 +305,8 @@ Respon:
 ```
 
 #### Detail Order
-- Url: /api/orders/{id}
-- Method: GET
+- Url: /api/orders/`{id}`
+- Method: `GET`
 - Deskripsi: Mendapatkan detail sebuah pesanan berdasarkan ID
 Path Parameter:
 - id: string (required)
@@ -336,8 +336,8 @@ Respon:
 ```
 
 #### Delete Order
-- Url: /api/orders/{id}
-- Method: DELETE
+- Url: /api/orders/`{id}`
+- Method: `DELETE`
 - Deskripsi: Menghapus atau membatalkan sebuah pesanan berdasarkan ID
 Path Parameter:
 - id: string (required)
